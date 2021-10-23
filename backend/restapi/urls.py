@@ -1,6 +1,7 @@
 from django.conf.urls import url
-from .views import trial
+from .views import getAllCourses,createCourse
 
 urlpatterns = [
-    url('^trial$', trial),
+    url('^getAllCourses$', getAllCourses),
+    url('^createCourse',createCourse)
 ]
