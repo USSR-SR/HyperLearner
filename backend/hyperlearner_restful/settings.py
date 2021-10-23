@@ -8,6 +8,7 @@ https://docs.djangoproject.com/en/3.2/topics/settings/
 
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.2/ref/settings/
+hello loda
 """
 
 from pathlib import Path
@@ -78,8 +79,8 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'hyperlearnerDB',
-        'USER': 'dreadarceus',
-        'PASSWORD': '123',
+        'USER': 'postgres',
+        'PASSWORD': 'Shivral31',
         'HOST': '127.0.0.1',
         'PORT': '5432',
     }
