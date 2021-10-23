@@ -106,3 +106,16 @@ def AddSubjectToStudent(request: HttpRequest):
         return JsonResponse({"user":studentT.username,"subject":subjectT.id},status=status.HTTP_200_OK)
     except:
         return JsonResponse({"status":"failed"},status=status.HTTP_400_BAD_REQUEST)
+
+@api_view(["POST"])
+def modifyProgressBar(request:HttpRequest):
+    try:
+        studentT = Student.objects.get(username=request.data['username'])
+        subjectT = Course.objects.get(id=request.data['id'])
+        studentCourse=StudentCourse.objects.get(student=studentT,course=subjectT)
+        studentCourse.progress+=5
+        studentCourse.save()
+        return JsonResponse({"progress ":studentCourse.progress},status=status.HTTP_200_OK)
+    except:
+        return JsonResponse({"progress ":studentCourse.progress},status=status.HTTP_200_OK)
+
