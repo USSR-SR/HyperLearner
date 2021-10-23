@@ -6,6 +6,7 @@ class Course(models.Model):
     id = models.IntegerField()
     name = models.CharField(max_length=40)
     parts = models.IntegerField(default=1)
+    #loloS
 
 
 class Student(models.Model):
