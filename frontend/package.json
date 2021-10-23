@@ -5,7 +5,8 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "server":"json-server --watch db.json --port 5000"
   },
   "dependencies": {
     "framer-motion": "^4.1.17",
