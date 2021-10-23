@@ -1,0 +1,41 @@
+{
+  "articles": [
+    {
+      "id": 1,
+      "Title": "Kill me",
+      "Summary": "random shot about some thing i donno why am i writing this is fuked up wtf what am i doing kill me this is soo fuked up kill me",
+      "author": "jesus",
+      "author_email":"ebastian@codingthesmartway.com",
+      "parts":4,
+      "topic":"okiguess"
+
+    },
+    {
+      "id": 2,
+      "Title": "Kill me",
+      "Summary": "random shot about some thing i donno why am i writing this is fuked up wtf what am i doing kill me this is soo fuked up kill me",
+      "author": "jesus",
+      "author_email":"ebastian@codingthesmartway.com",
+      "parts":4,
+      "topic":"okiguess"
+    },
+    {
+      "id": 3,
+      "Title": "Kill me",
+      "Summary": "random shot about some thing i donno why am i writing this is fuked up wtf what am i doing kill me this is soo fuked up kill me",
+      "author": "jesus",
+      "author_email":"ebastian@codingthesmartway.com",
+      "parts":4,
+      "topic":"okiguess"
+    },
+      {
+      "id": 4,
+      "Title": "Kill me",
+      "Summary": "random shot about some thing i donno why am i writing this is fuked up wtf what am i doing kill me this is soo fuked up kill me",
+      "author": "jesus",
+      "author_email":"ebastian@codingthesmartway.com",
+      "parts":4,
+      "topic":"okiguess"
+    }
+  ]
+}
