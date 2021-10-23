@@ -3,7 +3,7 @@ from django.contrib.postgres.fields import ArrayField
 
 
 class Course(models.Model):
-    id = models.IntegerField(primary_key=True)
+    id = models.AutoField(primary_key=True)
     name = models.CharField(max_length=40)
     parts = models.IntegerField(default=1)
     subject = models.CharField(max_length=40)
@@ -12,10 +12,11 @@ class Course(models.Model):
 
 
 class Student(models.Model):
+
     mobile_num = models.CharField(max_length=10)
     first_name = models.CharField(max_length=40)
     last_name = models.CharField(max_length=40)
-    username = models.CharField(max_length=40)
+    username = models.CharField(max_length=40,primary_key=True)
     password = models.CharField(max_length=40)
 
 
