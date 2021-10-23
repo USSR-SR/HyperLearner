@@ -96,3 +96,17 @@ def addFlash(request:HttpRequest):
         return  JsonResponse(request.data,status=status.HTTP_200_OK)
     except:
         return JsonResponse({"message ":"does not exist"},status=status.HTTP_204_NO_CONTENT)
+
+@api_view(['POST'])
+def AddSubjectToStudent(request: HttpRequest):
+    #get username and course id from json
+    # try:
+    studentT=Student.objects.get(username=request.data['username'])
+    subjectT=Course.objects.get(id=request.data['id'])
+    print(studentT,subjectT)
+    a=StudentCourse(student=studentT,Course=subjectT,progress=0)
+    a.save()
+    return JsonResponse({"status ":"l"},status=status.HTTP_200_OK)
+    # except:
+    #     return JsonResponse({"status ":"bad"},status=status.HTTP_400_BAD_REQUEST)
+
