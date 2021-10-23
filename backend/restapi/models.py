@@ -1,7 +1,6 @@
 from django.db import models
 from django.contrib.postgres.fields import ArrayField
 
-
 class Course(models.Model):
     id = models.AutoField(primary_key=True)
     name = models.CharField(max_length=40)
@@ -24,3 +23,8 @@ class StudentCourse(models.Model):
     student = models.ForeignKey(Student, on_delete=models.CASCADE)
     Course = models.ForeignKey(Course, on_delete=models.CASCADE)
     progress = models.IntegerField()
+
+class FlashCard(models.Model):
+    dataFront=models.TextField()
+    dataBack=models.TextField()
+    username=models.ForeignKey(Student,on_delete=models.CASCADE)

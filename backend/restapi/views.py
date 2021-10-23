@@ -16,6 +16,20 @@ def CourseToDict(Course):
     output["subject"]=Course.subject
     output["author"]=Course.id
     return output
+def StudentTodict(Student):
+    output={}
+    output["mobile_num"]=Student.mobile_num
+    output["first_name"]=Student.first_name
+    output["last_name"]=Student.last_name
+    output["username"]=Student.username
+    output["password"]=Student.password
+    return output
+def jsonMakerStudent():
+    Students=Student.objects.all()
+    temp=[]
+    for i in Students:
+        temp.append(StudentTodict(i))
+    return  JsonResponse(temp,status=status.HTTP_200_OK,safe=False)
 def jsonMaker():
     Courses=Course.objects.all()
     temp=[]
@@ -40,3 +54,45 @@ def createCourse(request:HttpRequest):
             return JsonResponse(courseSerializer.data,status=status.HTTP_200_OK)
     except:
         return JsonResponse(courseSerializer.errors,status=status.HTTP_400_BAD_REQUEST)
+
+
+@api_view(['POST'])
+def createStudent(request:HttpRequest):
+    try:
+        studentSerializer=StudentSerializer(data=request.data)
+        if studentSerializer.is_valid():
+            studentSerializer.save()
+            return JsonResponse(studentSerializer.data,status=status.HTTP_200_OK)
+    except:
+        return JsonResponse(studentSerializer.errors,status=status.HTTP_400_BAD_REQUEST)
+
+@api_view(["GET"])
+def getAllStudent(request:HttpRequest):
+    try:
+        return jsonMakerStudent()
+    except:
+        return JsonResponse(status=status.HTTP_400_BAD_REQUEST)
+
+
+@api_view(["GET"])
+def login(request:HttpRequest):
+    try:
+        res=Student.objects.get(username=request.data["username"])
+        user=StudentSerializer(res)
+        if(user.data.get("password")==request.data["password"]):
+
+            return JsonResponse({"message":"Logged in "},status=status.HTTP_200_OK)
+        else:
+            return JsonResponse({"message":"Wrong Password "},status=status.HTTP_204_NO_CONTENT)
+    except:
+        return JsonResponse({"message ":"not found user"},status=status.HTTP_400_BAD_REQUEST)
+
+
+@api_view(['POST'])
+def addFlash(request:HttpRequest):
+    res=Student.objects.get(username=request.data['username'])
+    try:
+        res.flashcard_set.create(dataFront=request.data['dataFront'],dataBack=request.data['dataBack'])
+        return  JsonResponse(request.data,status=status.HTTP_200_OK)
+    except:
+        return JsonResponse({"message ":"does not exist"},status=status.HTTP_204_NO_CONTENT)
