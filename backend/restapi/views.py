@@ -99,8 +99,10 @@ def addFlash(request:HttpRequest):
 
 @api_view(['POST'])
 def AddSubjectToStudent(request: HttpRequest):
-    studentT=Student.objects.get(username=request.data['username'])
-    subjectT=Course.objects.get(id=request.data['id'])
-    studentT.courses.add(subjectT,through_defaults={'progress': 5})
-    return JsonResponse({"status ":"l"},status=status.HTTP_200_OK)
-
+    try:
+        studentT=Student.objects.get(username=request.data['username'])
+        subjectT=Course.objects.get(id=request.data['id'])
+        studentT.courses.add(subjectT,through_defaults={'progress': 5})
+        return JsonResponse({"user":studentT.username,"subject":subjectT.id},status=status.HTTP_200_OK)
+    except:
+        return JsonResponse({"status":"failed"},status=status.HTTP_400_BAD_REQUEST)
