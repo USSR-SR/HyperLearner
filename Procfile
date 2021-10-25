@@ -1,1 +1,1 @@
-web: gunicorn myproject.wsgi
+web: gunicorn backend/hyperlearner_restful.wsgi
