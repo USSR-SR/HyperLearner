@@ -1,1 +1,1 @@
-export const server = 'http://localhost:5001/articles'
+export const server = 'https://hyper-learner.herokuapp.com/getAllCourses'

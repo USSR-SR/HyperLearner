@@ -7,7 +7,6 @@ import { server } from '../config'
 export default function Home({articles}) {
   return (
     <div className={styles.container}>
-    <Navbar/>
       <Head>
         <title>Create Next App</title>
         <link rel="icon" href="/favicon.ico"/>
@@ -19,7 +18,7 @@ export default function Home({articles}) {
 }
 
 export const getStaticProps = async () => {
-  const res = await fetch("http://localhost:5001/articles")
+  const res = await fetch(`${server}`)
   const articles = await res.json();
   return{
     props:{
