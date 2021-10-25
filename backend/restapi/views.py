@@ -53,6 +53,7 @@ def createCourse(request:HttpRequest):
             courseSerializer.save()
             return JsonResponse(courseSerializer.data,status=status.HTTP_200_OK)
     except:
+
         return JsonResponse(courseSerializer.errors,status=status.HTTP_400_BAD_REQUEST)
 
 
@@ -118,4 +119,3 @@ def modifyProgressBar(request:HttpRequest):
         return JsonResponse({"progress ":studentCourse.progress},status=status.HTTP_200_OK)
     except:
         return JsonResponse({"progress ":studentCourse.progress},status=status.HTTP_200_OK)
-

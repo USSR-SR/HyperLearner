@@ -10,6 +10,7 @@ class Course(models.Model):
     author = models.CharField(max_length=40)
 
 
+
 class Student(models.Model):
     mobile_num = models.CharField(max_length=10)
     first_name = models.CharField(max_length=40)
