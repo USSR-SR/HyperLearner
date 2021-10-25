@@ -1,1 +1,1 @@
-web: gunicorn backend/hyperlearner_restful.wsgi
+web: gunicorn hyperlearner_restful.wsgi
