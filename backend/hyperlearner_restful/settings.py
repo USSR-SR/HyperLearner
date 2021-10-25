@@ -13,6 +13,8 @@ hello loda
 
 from pathlib import Path
 
+import django_heroku
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -80,7 +82,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'hyperlearnerDB',
         'USER': 'postgres',
-        'PASSWORD': 'Shivral31',
+        'PASSWORD': '11037',
         'HOST': '127.0.0.1',
         'PORT': '5432',
     }
@@ -131,3 +133,5 @@ CORS_ORIGIN_ALLOW_ALL = False
 CORS_ORIGIN_WHITELIST = [
     'http://127.0.0.1:3000',
 ]
+
+django_heroku.settings(locals())
