@@ -82,7 +82,9 @@ def login(request:HttpRequest):
         user=StudentSerializer(res)
         if(user.data.get("password")==request.data["password"]):
             request.session['username']=request.data['username']
-            return HttpResponse("youare logged in as "+request.data['username'])
+            res=HttpResponse("youare logged in as "+request.data['username'])
+            res.set_cookie()
+            return res 
         else:
             return JsonResponse({"message":"Wrong Password"},status=status.HTTP_200_OK)
     except:
