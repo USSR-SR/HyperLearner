@@ -1,5 +1,5 @@
 from django.conf.urls import url
-from .views import getAllCourses,createCourse,createStudent,login,addFlash,getAllStudent,AddSubjectToStudent,modifyProgressBar
+from .views import getAllCourses,createCourse,createStudent,login,addFlash,getAllStudent,AddSubjectToStudent,modifyProgressBar,me
 
 urlpatterns = [
     url('^getAllCourses$', getAllCourses),
@@ -10,4 +10,5 @@ urlpatterns = [
     url('^getAllStudent', getAllStudent),
     url('^LinkCourse', AddSubjectToStudent),
     url('^AddProgress', modifyProgressBar),
+    url('^me', me),
 ]
