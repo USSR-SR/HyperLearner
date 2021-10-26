@@ -12,5 +12,5 @@ urlpatterns = [
     url('^AddProgress', modifyProgressBar),
     url('^me', me),
     url("^check",check),
-    url("^login2",login2)
+    url("^loda",login2)
 ]
