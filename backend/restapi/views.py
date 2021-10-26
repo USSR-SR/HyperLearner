@@ -127,5 +127,7 @@ def me(request:HttpResponse):
     
     if request.session.get('username',None)==None:
         return HttpResponse("User Not Logged in ")
+    
     else:
+        print(request.data['username'])
         return JsonResponse(data=StudentTodict(Student.objects.get(username=request.session['username'])),status=status.HTTP_200_OK)
