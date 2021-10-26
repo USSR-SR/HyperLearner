@@ -125,7 +125,7 @@ def modifyProgressBar(request:HttpRequest):
 @api_view(["GET","POST"])
 def me(request:HttpResponse):
     
-    if request.session.get('username',None)==None:
+    if request.cookies.get('username',None)==None:
         return HttpResponse("User Not Logged in ")
     
     else:
