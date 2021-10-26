@@ -133,6 +133,10 @@ CORS_ALLOW_ALL_ORIGINS = False
 CORS_ALLOWED_ORIGINS = [
     'http://localhost:3000',
 ]
+CSRF_TRUSTED_ORIGINS = [
+    'http://localhost:3000',
+]
+
 SESSION_ENGINE="django.contrib.sessions.backends.signed_cookies"
 # SESSION_COOKIE_SECURE= False
 # SESSION_COOKIE_DOMAIN= 'http://localhost:3000/' 
