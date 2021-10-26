@@ -131,3 +131,9 @@ def me(request:HttpResponse):
     else:
         print(request.data['username'])
         return JsonResponse(data=StudentTodict(Student.objects.get(username=request.session['username'])),status=status.HTTP_200_OK)
+
+@api_view(["GET","POST"])
+def check(request :HttpResponse):
+    if request.session.test_cookie_worked():
+        return HttpResponse("yes lodu worked ")
+
