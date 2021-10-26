@@ -86,7 +86,7 @@ def login(request:HttpRequest):
         else:
             return JsonResponse({"message":"Wrong Password "},status=status.HTTP_204_NO_CONTENT)
     except:
-        return JsonResponse({"message ":"not found user"},status=status.HTTP_400_BAD_REQUEST)
+        return JsonResponse({"message ":"not found user"},status=status.HTTP_204_NO_CONTENT)
 
 
 @api_view(['POST'])
