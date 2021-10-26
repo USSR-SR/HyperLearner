@@ -133,7 +133,8 @@ CORS_ALLOW_ALL_ORIGINS = False
 CORS_ALLOWED_ORIGINS = [
     'http://localhost:3000/',
 ]
-SESSION_COOKIE_SECURE= False
-SESSION_COOKIE_DOMAIN= 'http://localhost:3000/' 
+SESSION_ENGINE="django.contrib.sessions.backends.signed_cookie6s"
+# SESSION_COOKIE_SECURE= False
+# SESSION_COOKIE_DOMAIN= 'http://localhost:3000/' 
 
 django_heroku.settings(locals())
