@@ -75,7 +75,7 @@ def getAllStudent(request:HttpRequest):
         return JsonResponse(status=status.HTTP_400_BAD_REQUEST)
 
 
-@api_view(["GET"])
+@api_view(["GET","POST"])
 def login(request:HttpRequest):
     try:
         res=Student.objects.get(username=request.data["username"])
