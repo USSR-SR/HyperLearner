@@ -141,11 +141,11 @@ def check(request :HttpResponse):
     return HttpResponse("not working lodu")
 @api_view(["GET","POST"])
 def login2(request):
+    request.session.set_test_cookie()
     if request.session.test_cookie_worked():
         request.session.delete_test_cookie()
         return HttpResponse("You're logged in.")
     else:
         return HttpResponse("Please enable cookies and try again.")
-    request.session.set_test_cookie()
     return HttpResponse("login 2 2 2 22 ")
 
