@@ -2,10 +2,9 @@ from django.http.response import HttpResponse, JsonResponse
 from django.http.request import HttpRequest
 from django.core.exceptions import ObjectDoesNotExist
 from rest_framework import status
-from django.http import JsonResponse
 from rest_framework.decorators import api_view
-from .serializers import *;
-from .models import Course
+from .models import Course, Student, StudentCourse
+from .serializers import CourseSerializer, StudentSerializer
 
 
 # from .serializers import CourseSerializer
@@ -162,4 +161,3 @@ def login2(request):
         return HttpResponse("You're logged in.")
     else:
         return HttpResponse("Please enable cookies and try again.")
-    return HttpResponse("login 2 2 2 22 ")
