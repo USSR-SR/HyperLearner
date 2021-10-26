@@ -119,3 +119,11 @@ def modifyProgressBar(request:HttpRequest):
         return JsonResponse({"progress ":studentCourse.progress},status=status.HTTP_200_OK)
     except:
         return JsonResponse({"progress ":studentCourse.progress},status=status.HTTP_200_OK)
+
+@api_view(["GET","POST"])
+def me(request:HttpResponse):
+    
+    if request.session.get('username',None)==None:
+        return HttpResponse("User Not Logged in ")
+    else:
+        return JsonResponse(data=StudentTodict(Student.objects.get(username=request.session['username'])),status=status.HTTP_200_OK)
