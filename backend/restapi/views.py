@@ -84,7 +84,7 @@ def login(request:HttpRequest):
 
             return JsonResponse({"message":"Logged in "},status=status.HTTP_200_OK)
         else:
-            return JsonResponse({"message":"Wrong Password "},status=status.HTTP_200_OK)
+            return JsonResponse({"message":"Wrong Password "},status=status.HTTP_204_NO_CONTENT)
     except:
         return JsonResponse({"message ":"not found user"},status=status.HTTP_400_BAD_REQUEST)
 
