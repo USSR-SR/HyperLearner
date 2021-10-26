@@ -133,5 +133,7 @@ CORS_ALLOW_ALL_ORIGINS = True
 # CORS_ORIGIN_WHITELIST = [
 #     'http://localhost:3000/',
 # ]
+SESSION_COOKIE_SECURE= False
+SESSION_COOKIE_DOMAIN= 'http://localhost:3000/' 
 
 django_heroku.settings(locals())
