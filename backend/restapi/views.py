@@ -143,7 +143,7 @@ def check(request :HttpResponse):
 def login2(request):
     request.session.set_test_cookie()
     if request.session.test_cookie_worked():
-        request.session.delete_test_cookie()
+        # request.session.delete_test_cookie()
         return HttpResponse("You're logged in.")
     else:
         return HttpResponse("Please enable cookies and try again.")
