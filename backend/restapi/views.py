@@ -82,7 +82,7 @@ def login(request:HttpRequest):
         user=StudentSerializer(res)
         if(user.data.get("password")==request.data["password"]):
 
-            return JsonResponse({"message":"Logged in "},status=status.HTTP_200_OK)
+            return JsonResponse({"message":"Logged in"},status=status.HTTP_200_OK)
         else:
             return JsonResponse({"message":"Wrong Password"},status=status.HTTP_200_OK)
     except:
