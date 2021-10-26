@@ -134,6 +134,9 @@ def me(request:HttpResponse):
 
 @api_view(["GET","POST"])
 def check(request :HttpResponse):
+    
     if request.session.test_cookie_worked():
         return HttpResponse("yes lodu worked ")
+    request.set_test_cookie()
+    return HttpResponse("not working lodu")
 
