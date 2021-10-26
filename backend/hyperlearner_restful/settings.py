@@ -137,8 +137,11 @@ CSRF_TRUSTED_ORIGINS = [
     'http://localhost:3000',
 ]
 
+CSRF_COOKIE_SECURE = True
+SESSION_COOKIE_SECURE = True
+CSRF_COOKIE_SAMESITE = 'None'
+SESSION_COOKIE_SAMESITE = 'None'
+
 SESSION_ENGINE="django.contrib.sessions.backends.signed_cookies"
-# SESSION_COOKIE_SECURE= False
-# SESSION_COOKIE_DOMAIN= 'http://localhost:3000/' 
 
 django_heroku.settings(locals())
