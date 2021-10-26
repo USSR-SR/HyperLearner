@@ -59,13 +59,13 @@ def createCourse(request:HttpRequest):
 
 @api_view(['POST'])
 def createStudent(request:HttpRequest):
-    try:
-        studentSerializer=StudentSerializer(data=request.data)
-        if studentSerializer.is_valid():
-            studentSerializer.save()
-            return JsonResponse(studentSerializer.data,status=status.HTTP_200_OK)
-    except:
-        return JsonResponse(studentSerializer.errors,status=status.HTTP_400_BAD_REQUEST)
+    studentSerializer=StudentSerializer(data=request.data)
+    if studentSerializer.is_valid():
+        studentSerializer.save()
+        return JsonResponse(studentSerializer.data,status=status.HTTP_200_OK)
+    else:
+        return JsonResponse(studentSerializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
 
 @api_view(["GET"])
 def getAllStudent(request:HttpRequest):
