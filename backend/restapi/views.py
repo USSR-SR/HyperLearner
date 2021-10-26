@@ -1,4 +1,4 @@
-from django.http.response import JsonResponse
+from django.http.response import HttpResponse, JsonResponse
 from django.http.request import HttpRequest
 from django.core.exceptions import ObjectDoesNotExist
 from rest_framework import status
@@ -82,7 +82,7 @@ def login(request:HttpRequest):
         user=StudentSerializer(res)
         if(user.data.get("password")==request.data["password"]):
             request.session['username']=request.data['username']
-            return JsonResponse({"message":"Logged in"},status=status.HTTP_200_OK)
+            return HttpResponse("youare logged in ")
         else:
             return JsonResponse({"message":"Wrong Password"},status=status.HTTP_200_OK)
     except:
